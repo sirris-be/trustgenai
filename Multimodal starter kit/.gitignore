@@ -18,4 +18,4 @@ venv/
 *.egg-info/
 env/
 
-knowledge.lancedb/
+# knowledge.lancedb/
