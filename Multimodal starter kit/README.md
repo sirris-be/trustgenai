@@ -53,6 +53,9 @@ The Docker setup starts one shared image and multiple services:
     - Google API (`GOOGLE_API_KEY`) for Gemini Robotics ER usage
     - Azure OpenAI (`AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`) for agent/model and embedding flows
 
+> [!NOTE]
+> The current demonstrator is designed for Linux hosts with a connected camera. If you are using Windows or MacOS, you may need to run the camera MCP service on a separate Linux host and point the agent to that endpoint or directly run the camera MCP service on the host device.
+
 ## Configuration
 
 1. Create your environment file from the template:
@@ -193,3 +196,6 @@ See [data/readme.md](data/readme.md) for data directory conventions.
 ## Contributing
 
 For now, this repository is primarily maintained within the TrustGenAI WP3 context. If you plan to contribute, open an issue first to align on scope and priorities.
+
+## Accreditation
+This directory (WP3) is developed and maintained by Flanders Make.
