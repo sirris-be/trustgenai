@@ -1,0 +1,143 @@
+networks:
+  tgenai-assistant-network:
+    driver: bridge
+
+services:
+  redis:
+    image: redis:7
+    container_name: tgenai-agent-redis
+    networks:
+      - tgenai-assistant-network
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tgenai-assistant-agent
+    container_name: tgenai-agent
+    networks:
+      - tgenai-assistant-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - "${AGENT_PORT:-3000}:${AGENT_PORT:-3000}"
+    depends_on:
+      redis:
+        condition: service_healthy
+      vlm-mcp-service:
+        condition: service_healthy
+      camera-mcp-service:
+        condition: service_healthy
+      knowledge-mcp-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:%s/health' % os.getenv('AGENT_PORT', '3000'), timeout=2).read()\""]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  camera-mcp-service:
+    image: tgenai-assistant-agent
+    container_name: tgenai-camera-mcp
+    networks:
+      - tgenai-assistant-network
+    privileged: true
+    devices:
+      - "/dev:/dev"
+    device_cgroup_rules:
+      - "c 81:* rmw"
+    group_add:
+      - "video"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - "${CAMERA_MCP_PORT:-5001}:${CAMERA_MCP_PORT:-5001}"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import os, socket; s=socket.create_connection(('127.0.0.1', int(os.getenv('CAMERA_MCP_PORT', '5001'))), 2); s.close()\""]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    command: python -m tgenai_agent.tools.camera_tool_mcp_server
+
+  vlm-mcp-service:
+    image: tgenai-assistant-agent
+    container_name: tgenai-vlm-mcp
+    networks:
+      - tgenai-assistant-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - "${VLM_MCP_PORT:-5002}:${VLM_MCP_PORT:-5002}"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import os, socket; s=socket.create_connection(('127.0.0.1', int(os.getenv('VLM_MCP_PORT', '5002'))), 2); s.close()\""]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    command: python -m tgenai_agent.tools.vlm_tool_mcp_server
+
+  knowledge-mcp-service:
+    image: tgenai-assistant-agent
+    container_name: tgenai-knowledge-mcp
+    networks:
+      - tgenai-assistant-network
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - "${KNOWLEDGE_MCP_PORT:-5003}:${KNOWLEDGE_MCP_PORT:-5003}"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import os, socket; s=socket.create_connection(('127.0.0.1', int(os.getenv('KNOWLEDGE_MCP_PORT', '5003'))), 2); s.close()\""]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    command: python -m tgenai_agent.tools.knowledge_tool_mcp_server
+
+  tgui-broker:
+    image: tgenai-assistant-agent
+    container_name: tgenai-tgui-broker
+    networks:
+      - tgenai-assistant-network
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - "${TGUI_PORT:-3001}:${TGUI_PORT:-3001}"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:%s/health' % os.getenv('TGUI_PORT', '3001'), timeout=2).read()\""]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    command: sh -c "fastapi run tgenai_agent/tgui_broker/server.py --host 0.0.0.0 --port $${TGUI_PORT}"

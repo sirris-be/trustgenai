@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TGENAI Assistant Activity Monitor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__brand">TGENAI Assistant</div>
+    <div class="topbar__status">
+      <span>timeline</span>
+      <span id="timeline-status" class="status-pill status-pill--disconnected">reconnecting</span>
+      <span>details</span>
+      <span id="detail-status" class="status-pill status-pill--disconnected">reconnecting</span>
+    </div>
+  </header>
+
+  <main class="workbench">
+    <section class="panel panel--timeline" aria-label="Timeline">
+      <div class="panel__header">
+        <h1 class="panel__title">Timeline</h1>
+      </div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section class="panel panel--details" aria-label="Tool details">
+      <div class="panel__header">
+        <h2 class="panel__title">Tool Details</h2>
+      </div>
+      <div id="tool-details" class="tool-details"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
