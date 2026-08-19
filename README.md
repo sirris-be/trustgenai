@@ -28,7 +28,7 @@ cd trustgenai
 If you have additional questions, feedback, or would like support in applying the concepts from this playbook to your specific use case, we encourage you to get in touch with the authors. You can contact Sirris at info@sirris.be and Flanders Make at info@flandersmake.be to discuss collaboration, guidance, or follow-up activities.
 
 ## Acknowledgement
-The TrustGenAI project was funded by the Flemish government, department WEWIS and is linked to the 
+The TrustGenAI project was funded by the Flemish government, department WEWIS and is linked to the Flanders AI Research Program.
 
 ## Further reference:
 - Flanders AI: https://www.flandersai.be/en
