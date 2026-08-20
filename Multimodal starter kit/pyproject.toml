@@ -13,7 +13,7 @@ dependencies = [
     "ddgs",
     "google-genai",
     "lancedb",
-    "mcp",
+    "mcp[cli]>=1.28,<2",
     "numpy",
     "openai",
     "opencv-python-headless",
@@ -23,6 +23,8 @@ dependencies = [
     "plotly",
     "pyarrow",
     "redis",
+    "fastapi[standard]",
+    "uvicorn[standard]",
     "websockets",
 ]
 

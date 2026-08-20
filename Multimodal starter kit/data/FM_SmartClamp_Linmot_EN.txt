@@ -1,0 +1,100 @@
+The document is an assembly instruction for the Smart Clamp linear motor.
+A hex key size 3 is required.
+A hex key size 4 is required.
+A hex key size 5 is required.
+A fixture is required for assembly.
+One M8x25 slider screw is required.
+Two M8 spherical washers are required.
+Two M6x12 shaft screws (ISO 4762) are required.
+One front plate part 0150-5005 is required.
+Two M8 conical seats are listed.
+One dished washer DIN2093A is required.
+One slider part 0150-1506 is required.
+Two hardened steel shafts are required.
+The shaft part number is 0150-5010.
+Three M5x18 clamping screws are required.
+Three clamping cylinders are required.
+The clamping cylinder part number is 0150-5053.
+One guide block with ball bearings is required.
+The guide block part number is 0150-5002.
+One stator part 0150-1252 is required.
+Two M6 washers sized 20/1.5 are required.
+Two M6x12 shaft screws (ISO 7380) are required.
+One brake hole cap is required.
+The brake hole cap part number is 0160-0727.
+One 80x80 mm cooling fan is required.
+Four M4 square nuts are required.
+The square nuts follow DIN 562.
+Four M4x16 hexagonal spacers are required.
+Four M4x30 screws are required.
+The M4x30 screws follow ISO 4762.
+One protective grid is required.
+The assembly kit must be available on the work table.
+The guide block is black.
+The guide block is positioned in a fixture.
+The T-slots must face upward.
+Three holes should face the assembler.
+The stator is taken from the kit.
+The stator is inserted from the right side.
+The stator is slid carefully into the housing.
+The stator is fixed in the housing.
+Three clamping cylinders are used to secure the stator.
+Three M5x18 screws are placed in the cylinders.
+A size 4 hex key is used to fasten the clamping screws.
+The clamping cylinders must be inserted completely.
+A brake hole cap is taken from a container.
+The brake hole cap is pushed into a hole in the guide block.
+Slider assembly begins after stator fixation.
+The slider comes in a tube.
+The tube is opened before extraction.
+The slider rod must be extracted carefully.
+The slider rod is highly magnetic.
+The slider rod should be grasped firmly.
+The slider is inserted from the left side.
+Magnetic forces create resistance during insertion.
+The tube is returned to the kit afterward.
+Hardened steel shafts are inserted from the right side.
+The shafts are inserted into the guide block.
+The front plate is placed against the shafts.
+The front plate has a “This side up” marking.
+The marking must remain visible after mounting.
+The text should face toward the housing.
+Two M6x12 shaft screws secure the front plate.
+A size 5 hex key is used on the shaft screws.
+The slider screw must be prepared before final attachment.
+The slider screw is an M8x25 bolt.
+Two spherical washers are collected for slider screw assembly.
+One conical seat is collected for slider screw assembly.
+One dished washer is collected for slider screw assembly.
+A spherical washer is first placed on the slider screw.
+The slider screw is inserted into the front plate.
+The conical seat is milled into the front plate.
+The front plate is attached to the slider.
+A conical seat is placed on the opposite side of the front plate.
+A second spherical washer is placed on the screw assembly.
+A dished washer is added to the assembly.
+The bolt is screwed into the slider rod end.
+A size 5 hex key is used for the slider screw.
+Additional cooling is provided by a fan assembly.
+Four square nuts are taken from containers.
+Four hexagonal spacers are taken from containers.
+The square nuts slide into T-slots.
+The square nuts must be positioned correctly.
+Four spacers are screwed onto the square nuts.
+The cooling fan sits on top of the spacers.
+Spacer positions may need adjustment.
+A protective grid is placed above the fan.
+Fan assembly uses four M4x30 screws.
+The screws are taken from a container on the table.
+A size 5 hex key secures the fan screws.
+Four screws are used to fix the fan assembly.
+The guide block contains T-slots.
+Ball bearings are integrated into the guide block assembly.
+The procedure includes both mechanical assembly and cooling installation.
+The stator is installed before the slider.
+The front plate is installed after the shafts.
+Magnetic attraction is explicitly noted in the procedure.
+Orientation checks are required for the front plate.
+Multiple fasteners follow ISO standards.
+Several washers are used to accommodate the slider connection.
+The procedure ends with the statement that assembly is finished.
